@@ -1,5 +1,5 @@
 import React from 'react';
-import './menu-item.styles.scss'
+import './MenuItem.scss'
 
 interface MenuItem {
     title: string;

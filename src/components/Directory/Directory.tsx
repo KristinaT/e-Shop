@@ -1,7 +1,7 @@
 import React from 'react';
-import MenuItem from '../menu-item/menu-item.component';
-import sections from '../../constants/sections';
-import './directory.styles.scss';
+import MenuItem from '../MenuItem/MenuItem';
+import sections from '../../constants/Sections';
+import './Directory.scss';
 
 interface State {
     sections: {
