@@ -24,11 +24,6 @@ const MenuItem: React.FC<MenuItem & RouteComponentProps> = ({
     className={`${size} menu-item`}
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
-    {console.log(history, ' history')}
-    {console.log(match, ' match')}
-    {console.log(linkUrl, ' linkUrl')}
-    {console.log(`${match.url}${linkUrl}`, ' linkUrl')}
-
     <div
       className='background-image'
       style={{

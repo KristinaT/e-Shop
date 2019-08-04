@@ -1,6 +1,6 @@
 import React from 'react';
 import MenuItem from '../MenuItem/MenuItem';
-import sections from '../../constants/Sections';
+import SECTIONS from '../../staticData/Sections';
 import './Directory.scss';
 
 interface State {
@@ -12,14 +12,13 @@ interface State {
     linkUrl: string;
   }[];
 }
-interface Props {}
 
-class Directory extends React.Component<Props, State> {
-  constructor(props: Props) {
+class Directory extends React.Component<{}, State> {
+  constructor(props: Readonly<{}>) {
     super(props);
 
     this.state = {
-      sections: sections
+      sections: SECTIONS
     };
   }
 
