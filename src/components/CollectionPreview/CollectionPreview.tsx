@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShopItems } from '../../staticData/ShopData';
+import CollectionItem from '../CollectionItem/CollectionItem';
 import './CollectionPreview.scss';
 
 interface PreviewCollection {
@@ -7,7 +8,8 @@ interface PreviewCollection {
   title: string;
   items: ShopItems[];
 }
-const CollectionPreview: React.FC<PreviewCollection> = ({ title, items }) => {
+type Props = PreviewCollection;
+const CollectionPreview: React.FC<Props> = ({ title, items }) => {
   return (
     <div className='collection-preview'>
       <h1 className='title'>{title.toUpperCase()}</h1>
@@ -16,8 +18,8 @@ const CollectionPreview: React.FC<PreviewCollection> = ({ title, items }) => {
       <div className='preview'>
         {items
           .filter((item, index) => index < 4)
-          .map(item => (
-            <div key={item.id}>{item.name}</div>
+          .map(({ id, ...otherItemProps }) => (
+            <CollectionItem key={id} {...otherItemProps} />
           ))}
       </div>
     </div>
