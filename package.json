@@ -8,6 +8,7 @@
     "@types/react": "16.8.24",
     "@types/react-dom": "16.8.5",
     "@types/react-router-dom": "^4.3.4",
+    "firebase": "^6.3.4",
     "lodash.template": "4.5.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
