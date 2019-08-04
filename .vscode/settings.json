@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.trimFinalNewlines": true,
+  "editor.cursorStyle": "block",
+  "editor.cursorBlinking": "smooth",
+  "explorer.sortOrder": "type",
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "editor.fontFamily": "Operator Mono Lig, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true
+}
