@@ -1,7 +1,8 @@
 import React, { ChangeEvent } from 'react';
 import FormInput from '../FormInput/FormInput';
-import './SignIn.scss';
 import CustomButton from '../CustomButton/CustomButton';
+import { signInWithGoogle } from '../../firebase/Firebase';
+import './SignIn.scss';
 
 interface State {
   email: string;
@@ -54,8 +55,13 @@ class SignIn extends React.Component<{}, State> {
             label='password'
             required
           />
-
-          <CustomButton type='submit'> Sign in </CustomButton>
+          <div className='buttons'>
+            <CustomButton type='submit'> Sign in </CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              {' '}
+              Sign in with Google
+            </CustomButton>
+          </div>
         </form>
       </div>
     );
