@@ -31,11 +31,13 @@ class SignUp extends React.Component<{}, State> {
     }
 
     try {
+      /** Creates new user account with that username and password */
       const { user } = await auth.createUserWithEmailAndPassword(
         email,
         password
       );
 
+      /** Store that user account to the db */
       await createUserProfileDocument(user, { displayName });
 
       this.setState({

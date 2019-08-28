@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
-import './Header.scss';
 import { auth } from '../../firebase/Firebase';
-interface Header {
+import { connect, MapStateToProps } from 'react-redux';
+import './Header.scss';
+import { RootState } from '../../redux/reducers/types';
+
+interface OwnProps {}
+
+interface StateProps {
   currentUser: object | null;
 }
-type Props = Header;
+
+interface DispatchProps {}
+
+type Props = OwnProps & StateProps & DispatchProps;
 const Header: React.FC<Props> = ({ currentUser }) => (
   <div className='header'>
     <Link className='logo-container' to='/'>
@@ -32,4 +40,16 @@ const Header: React.FC<Props> = ({ currentUser }) => (
   </div>
 );
 
-export default Header;
+// const mapStateToProps = (state: { user: { currentUser: StateProps } }) => ({
+//   currentUser: state.user.currentUser
+// });
+
+const mapStateToProps: MapStateToProps<
+  StateProps,
+  OwnProps,
+  RootState
+> = state => ({
+  currentUser: state.user.currentUser
+});
+
+export default connect(mapStateToProps)(Header);

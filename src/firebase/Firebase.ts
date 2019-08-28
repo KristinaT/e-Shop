@@ -41,9 +41,8 @@ export const createUserProfileDocument = async (
 };
 
 firebase.initializeApp(config);
-
+/** Get Auth service for the app */
 export const auth = firebase.auth();
-console.log(typeof auth, ' auth');
 export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
