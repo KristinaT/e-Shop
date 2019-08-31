@@ -80,7 +80,8 @@ const mapStateToProps: MapStateToProps<
   OwnProps,
   RootState
 > = state => ({
-  currentUser: state.user.currentUser
+  currentUser: state.user.currentUser,
+  hidden: state.cart.hidden
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {
