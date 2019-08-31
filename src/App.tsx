@@ -28,13 +28,14 @@ class App extends React.Component<Props, State> {
   unsubscribeFromAuth: Unsubscribe | null = null;
 
   componentDidMount() {
+    const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         if (userRef) {
           userRef.onSnapshot(snapshot => {
-            this.props.setCurrentUser({
+            setCurrentUser({
               id: snapshot.id,
               /** Getting the document properties: displayName, email, ... */
               ...snapshot.data()
@@ -43,7 +44,7 @@ class App extends React.Component<Props, State> {
         }
       }
 
-      this.setState({ currentUser: userAuth });
+      setCurrentUser(userAuth);
     });
   }
   componentWillUnmount() {
