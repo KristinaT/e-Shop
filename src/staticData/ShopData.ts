@@ -10,7 +10,8 @@ export interface ShopItems {
   imageUrl: string;
   price: number;
 }
-export const SHOP_DATA: ShopData[] = [
+
+const SHOP_DATA = [
   {
     id: 1,
     title: 'Hats',
@@ -257,3 +258,5 @@ export const SHOP_DATA: ShopData[] = [
     ]
   }
 ];
+
+export default SHOP_DATA;

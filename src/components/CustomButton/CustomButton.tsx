@@ -4,16 +4,20 @@ import './CustomButton.scss';
 interface CustomButton {
   type?: 'button' | 'submit' | 'reset' | undefined;
   isGoogleSignIn?: boolean;
+  inverted?: boolean;
   onClick?: () => void;
 }
 type Props = CustomButton;
 const CustomButton: React.FC<Props> = ({
   children,
   isGoogleSignIn,
+  inverted,
   ...otherProps
 }) => (
   <button
-    className={`${isGoogleSignIn ? 'google-sign-in' : ''} custom-button`}
+    className={`${inverted ? 'inverted' : ''} ${
+      isGoogleSignIn ? 'google-sign-in' : ''
+    } custom-button`}
     {...otherProps}
   >
     {children}

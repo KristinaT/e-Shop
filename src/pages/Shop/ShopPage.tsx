@@ -1,6 +1,6 @@
 import React from 'react';
 import CollectionPreview from '../../components/CollectionPreview/CollectionPreview';
-import { ShopData, SHOP_DATA } from '../../staticData/ShopData';
+import SHOP_DATA, { ShopData } from '../../staticData/ShopData';
 
 interface State {
   collections: ShopData[];
