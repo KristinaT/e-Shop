@@ -4,6 +4,7 @@ import './CartDropdown.scss';
 import { connect, MapStateToProps } from 'react-redux';
 import { RootState } from '../../redux/reducers/types';
 import CartItem from '../CartItem/CartItem';
+import { selectCartItems } from '../../redux/selectors/cartSelector';
 
 interface OwnProps {}
 interface StateProps {
@@ -29,7 +30,7 @@ const mapStateToProps: MapStateToProps<
   OwnProps,
   RootState
 > = state => ({
-  cartItems: state.cart.cartItems
+  cartItems: selectCartItems(state)
 });
 
 export default connect(mapStateToProps)(CartDropdown);

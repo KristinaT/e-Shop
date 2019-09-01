@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
-import CartIcon from '../CardIcon/CardIcon';
+import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
 import { auth } from '../../firebase/Firebase';
 import { connect, MapStateToProps } from 'react-redux';
