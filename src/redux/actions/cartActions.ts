@@ -1,6 +1,7 @@
 import CartActionTypes, {
   setAddItemAction,
-  setClearItemFromCartAction
+  setClearItemFromCartAction,
+  setRemoveItemAction
 } from './types';
 import { Action } from 'redux';
 
@@ -10,6 +11,11 @@ export const toggleCartHidden = (): Action => ({
 
 export const addItem = (item: setAddItemAction) => ({
   type: CartActionTypes.ADD_ITEM,
+  payload: item
+});
+
+export const removeItem = (item: setRemoveItemAction) => ({
+  type: CartActionTypes.REMOVE_ITEM,
   payload: item
 });
 
