@@ -1,6 +1,7 @@
 import { Reducer } from 'redux';
 import CartActionTypes from '../../actions/types';
 import { addItemToCart } from '../../utils/cartUtils';
+import CartItem from '../../../components/CartItem/CartItem';
 
 export interface State {
   hidden: boolean;
@@ -23,6 +24,13 @@ const cartReducer: Reducer<State> = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload)
+      };
+    case CartActionTypes.CLEAR_ITEM_FROM_CART:
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          cartItem => cartItem.id !== action.payload.id
+        )
       };
     default:
       return state;
