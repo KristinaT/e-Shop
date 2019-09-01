@@ -11,6 +11,7 @@ import { setCurrentUser } from './redux/actions/userActions';
 import './App.scss';
 import { RootState } from './redux/reducers/types';
 import { selectCartHidden } from './redux/selectors/cartSelector';
+import CartCheckout from './components/CartCheckout/CartCheckout';
 
 interface OwnProps {}
 
@@ -59,6 +60,8 @@ class App extends React.Component<Props, State> {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
+          <Route exact path='/checkout' component={CartCheckout} />
+
           <Route
             exact
             path='/signin'
