@@ -10,6 +10,7 @@ import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { setCurrentUser } from './redux/actions/userActions';
 import './App.scss';
 import { RootState } from './redux/reducers/types';
+import { selectCartHidden } from './redux/selectors/cartSelector';
 
 interface OwnProps {}
 
@@ -80,8 +81,8 @@ const mapStateToProps: MapStateToProps<
   OwnProps,
   RootState
 > = state => ({
-  currentUser: state.user.currentUser,
-  hidden: state.cart.hidden
+  currentUser: setCurrentUser(state),
+  hidden: selectCartHidden(state)
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {

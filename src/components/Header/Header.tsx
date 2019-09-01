@@ -6,6 +6,8 @@ import CartDropdown from '../CartDropdown/CartDropdown';
 import { auth } from '../../firebase/Firebase';
 import { connect, MapStateToProps } from 'react-redux';
 import { RootState } from '../../redux/reducers/types';
+import { selectCartHidden } from '../../redux/selectors/cartSelector';
+import { selectCurrentUser } from '../../redux/selectors/userSelector';
 import './Header.scss';
 
 interface OwnProps {}
@@ -50,8 +52,8 @@ const mapStateToProps: MapStateToProps<
   OwnProps,
   RootState
 > = state => ({
-  currentUser: state.user.currentUser,
-  hidden: state.cart.hidden
+  currentUser: selectCurrentUser(state),
+  hidden: selectCartHidden(state)
 });
 
 export default connect(mapStateToProps)(Header);
