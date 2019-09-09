@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 import SHOP_DATA from '../../staticData/ShopData';
 
 export interface State {
-  collections: any[];
+  collections: any;
 }
 const INITIAL_STATE = {
   collections: SHOP_DATA

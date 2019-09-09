@@ -15,7 +15,7 @@ type Props = OwnProps & StateProps & DispatchProps;
 
 const CollectionsOverview: React.FC<Props> = ({ collections }) => (
   <div className='collections-overview'>
-    {collections.map(({ id, ...otherCollectionProps }) => (
+    {Object.values(collections).map(({ id, ...otherCollectionProps }) => (
       <CollectionPreview key={id} {...otherCollectionProps} />
     ))}
   </div>
