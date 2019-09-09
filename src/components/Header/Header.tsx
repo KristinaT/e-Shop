@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
@@ -8,7 +7,13 @@ import { connect, MapStateToProps } from 'react-redux';
 import { RootState } from '../../redux/reducers/types';
 import { selectCartHidden } from '../../redux/selectors/cartSelector';
 import { selectCurrentUser } from '../../redux/selectors/userSelector';
-import './Header.scss';
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionsContainer,
+  OptionDiv,
+  OptionLink
+} from './HeaderStyles';
 
 interface OwnProps {}
 
@@ -21,30 +26,22 @@ interface DispatchProps {}
 
 type Props = OwnProps & StateProps & DispatchProps;
 const Header: React.FC<Props> = ({ currentUser, hidden }) => (
-  <div className='header'>
-    <Link className='logo-container' to='/'>
+  <HeaderContainer>
+    <LogoContainer to='/'>
       <Logo className='logo' />
-    </Link>
-    <div className='options'>
-      <Link className='option' to='/shop'>
-        SHOP
-      </Link>
-      <Link className='option' to='/shop'>
-        CONTACT
-      </Link>
+    </LogoContainer>
+    <OptionsContainer>
+      <OptionLink to='/shop'>SHOP</OptionLink>
+      <OptionLink to='/shop'>CONTACT</OptionLink>
       {currentUser ? (
-        <div className='option' onClick={() => auth.signOut()}>
-          SIGN OUT
-        </div>
+        <OptionDiv onClick={() => auth.signOut()}>SIGN OUT</OptionDiv>
       ) : (
-        <Link to='/signin' className='option'>
-          SIGN IN
-        </Link>
+        <OptionLink to='/signin'>SIGN IN</OptionLink>
       )}
       <CartIcon />
-    </div>
+    </OptionsContainer>
     {!hidden && <CartDropdown />}
-  </div>
+  </HeaderContainer>
 );
 
 const mapStateToProps: MapStateToProps<
