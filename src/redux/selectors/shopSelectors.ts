@@ -1,4 +1,5 @@
 import { RootState } from '../reducers/types';
+import { ShopData } from '../../staticData/ShopData';
 
 const selectShop = (state: RootState) => state.shop;
 

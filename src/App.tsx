@@ -4,7 +4,11 @@ import HomePage from './pages/Homepage/HomePage';
 import ShopPage from './pages/Shop/ShopPage';
 import Header from './components/Header/Header';
 import SignInSignUpPage from './pages/SignInAndSignUpPage/SignInAndSignUpPage';
-import { auth, createUserProfileDocument } from './firebase/Firebase';
+import {
+  auth,
+  createUserProfileDocument,
+  addCollectionAndDocuments
+} from './firebase/Firebase';
 import { Unsubscribe } from 'firebase';
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { setCurrentUser } from './redux/actions/userActions';
