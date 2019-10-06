@@ -16,3 +16,6 @@ export type CollectionUrlParam =
 export const selectCollection = (collectionUrlParam: CollectionUrlParam) => (
   state: RootState
 ) => selectShop(state).collections[collectionUrlParam];
+
+export const selectIsCollectionFetching = (state: RootState) =>
+  selectShop(state).isFetching;
