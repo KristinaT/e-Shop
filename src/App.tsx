@@ -12,6 +12,7 @@ import {
 import { Unsubscribe } from 'firebase';
 import { connect, MapDispatchToProps, MapStateToProps } from 'react-redux';
 import { setCurrentUser } from './redux/actions/userActions';
+import { selectCurrentUser } from './redux/selectors/userSelector';
 import './App.scss';
 import { RootState } from './redux/reducers/types';
 import { selectCartHidden } from './redux/selectors/cartSelector';
@@ -88,7 +89,7 @@ const mapStateToProps: MapStateToProps<
   OwnProps,
   RootState
 > = state => ({
-  currentUser: setCurrentUser(state),
+  currentUser: selectCurrentUser(state),
   hidden: selectCartHidden(state)
 });
 
@@ -96,7 +97,4 @@ const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {
   setCurrentUser
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

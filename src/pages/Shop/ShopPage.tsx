@@ -40,7 +40,10 @@ class ShopPage extends React.Component<Props> {
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = (
   dispatch: any
 ) => ({
-  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync())
+  fetchCollectionsStartAsync: () => {
+    const action = fetchCollectionsStartAsync();
+    return dispatch(action);
+  }
 });
 
 const mapStateToProps: MapStateToProps<
